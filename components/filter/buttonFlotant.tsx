@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
 import { Modal, Button, FloatButton, Slider } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
+import { isMobile } from 'react-device-detect';
 
 interface Props {
   children: ReactNode;
@@ -22,20 +23,22 @@ const App: React.FC<Props> = ({ children }: Props) => {
   };
 
   return (
-    <>
-      <FloatButton.Group type="primary" style={{ right: 40, top: 610 }} icon={<FilterOutlined />}>
-        <FloatButton style={{ width: '70px', height: '70px' }} onClick={openModal} />
-      </FloatButton.Group>
-      <Modal
-        visible={modalVisible}
-        onCancel={closeModal}
-        centered
-        footer={[]}
-        className='card'
-      >
-        {children}
-      </Modal>
-    </>
+    isMobile ? (
+      <>
+        <FloatButton.Group type="primary" style={{ right: 40, top: 610 }} icon={<FilterOutlined />}>
+          <FloatButton style={{ width: '70px', height: '70px' }} onClick={openModal} />
+        </FloatButton.Group>
+        <Modal
+          visible={modalVisible}
+          onCancel={closeModal}
+          centered
+          footer={[]}
+          className='card'
+        >
+          {children}
+        </Modal>
+      </>
+    ) : null
   );
 };
 
