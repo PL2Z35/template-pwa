@@ -1,26 +1,26 @@
 {
-	"name": "Rice Bowl",
-	"short_name": "Rice Bowl",
-	"description": "Fluffless jasmine rice for those cold winter nights",
+	"name": "Hitch App",
+	"short_name": "Hitch",
+	"description": "Compara precios",
 	"icons": [
 		{
-			"src": "/images/icon-192.png",
+			"src": "/icons/icon-192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "/images/icon-512.png",
+			"src": "/icons/icon-512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		},
 		{
-			"src": "/images/icon-maskable-192.png",
+			"src": "/icons/icon-maskable-192.png",
 			"type": "image/png",
 			"sizes": "192x192",
 			"purpose": "maskable"
 		},
 		{
-			"src": "/images/icon-maskable-512.png",
+			"src": "/icons/icon-maskable-512.png",
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "maskable"

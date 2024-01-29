@@ -3,7 +3,7 @@ interface Props {
 }
 
 const Section = ({ children }: Props) => (
-	<section className='mt-10'>{children}</section>
+	<section className='pt-10 mx-auto max-w-screen-xl px-2 mb-5'>{children}</section>
 )
 
 export default Section

@@ -1,34 +1,31 @@
-import Head from 'next/head'
-import Appbar from '@/components/appbar'
-import BottomNav from '@/components/bottom-nav'
+import Head from 'next/head';
+import Appbar from '@/components/appbar';
+import BottomNav from '@/components/bottom-nav';
+import Footer from './footer/footer';
+import { isMobile } from 'react-device-detect';
 
 interface Props {
-	title?: string
-	children: React.ReactNode
+  title?: string;
+  children: React.ReactNode;
 }
 
 const Page = ({ title, children }: Props) => (
-	<>
-		{title ? (
-			<Head>
-				<title>Rice Bowl | {title}</title>
-			</Head>
-		) : null}
+  <>
+    {title ? (
+      <Head>
+        <title>Hitch | {title}</title>
+      </Head>
+    ) : null}
 
-		<Appbar />
+    <Appbar />
 
-		<main
-			/**
-			 * Padding top = `appbar` height
-			 * Padding bottom = `bottom-nav` height
-			 */
-			className='mx-auto max-w-screen-md pt-20 pb-16 px-safe sm:pb-0'
-		>
-			<div className='p-6'>{children}</div>
-		</main>
+    <main className={ 'pt-20 sm:pb-0 pb-20 pr-1 pl-1' }>
+      <div className=''>{children}</div>
+    </main>
 
-		<BottomNav />
-	</>
-)
+    <BottomNav />
+    <Footer />
+  </>
+);
 
-export default Page
+export default Page;

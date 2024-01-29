@@ -3,10 +3,195 @@
 @tailwind utilities;
 
 body {
-	@apply min-h-screen select-none bg-zinc-50 text-zinc-900 antialiased p-safe dark:bg-zinc-900 dark:text-zinc-50;
-
 	/* PWA enhancements */
 	-webkit-overflow-scrolling: touch;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--color-pink: #be00e0;
+	--color-purple: #4d00e0;
+	--color-gradient: linear-gradient(to right, var(--color-purple), var(--color-pink));
+	--color-text: #010326;
+	--color-white: white;
+	--color-blue: #00ffff;
+	--color-gray: #808080;
+	--color-red: #FF0000;
+	--body-font: 'Poppins', sans-serif;
+	--color-primary: var(--color-pink);
+	--color-blue-card: #030140;
+}
+
+.color-navbar {
+	background: var(--color-gradient);
+	width: 100%;
+	color: var(--color-white);
+}
+
+.background-purple {
+	background-color: var(--color-purple);
+}
+
+.background-pink {
+	background-color: var(--color-pink);
+}
+
+/* Cards */
+
+/* Estilo para pantallas grandes (desktop) */
+@media (min-width: 992px) {
+	.card-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.card {
+		flex: 0 0 calc(33.3333% - 10px);
+		margin-bottom: 20px;
+		min-height: 100px;
+	}
+}
+
+/* Estilo para pantallas medianas (tablet) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.card-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.card {
+		flex: 0 0 calc(50% - 10px);
+		margin-bottom: 20px;
+	}
+}
+
+/* Estilo para pantallas pequeñas (mobile) */
+@media (max-width: 767.98px) {
+	.card-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 30px;
+	overflow: visible !important;
+	flex: 1 0 auto;
+}
+
+.center-text.large-text {
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.card-text-color {
+	color: var(--color-blue-card);
+}
+
+
+.cardNotice {
+	position: relative;
+	transition: background-color 0.3s ease;
+}
+
+.cardNotice::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	background-size: cover;
+}
+
+.cardNotice:hover::before {
+	opacity: 0.5;
+}
+
+.cardNotice.zoomed::before {
+	opacity: 0.7;
+	/* Adjust the opacity as needed for a darker background */
+}
+
+.cardNotice h1,
+.cardNotice div {
+	transform: translateY(30px);
+	transition: transform 0.3s ease;
+}
+
+.cardNotice:hover h1,
+.cardNotice.zoomed h1,
+.cardNotice:hover div,
+.cardNotice.zoomed div {
+	transform: translateY(0);
+}
+
+
+.carousel-arrow-btn {
+	position: absolute;
+	top: 50%;
+	/* Ajusta este valor según sea necesario */
+	transform: translateY(-50%);
+	z-index: 1;
+	background-color: var(--color-purple);
+
+}
+
+.carousel-arrow-btn.left {
+	left: 0px;
+}
+
+.carousel-arrow-btn.right {
+	right: 0px;
+}
+
+.carousel-container {
+	position: relative;
+	align-items: center;
+}
+
+.card-notice-text-color {
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cardNotice:hover .overlay,
+.cardNotice.zoomed .overlay {
+    opacity: 0.5; 
+}
+
+
+.zoom-effect {
+	transform: scale(1.1);
+	transition: transform 0.3s ease-in-out;
+}
+
+.text-title-section {
+	font-size: 1.8em;
 }
