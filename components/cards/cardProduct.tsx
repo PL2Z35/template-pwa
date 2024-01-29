@@ -1,5 +1,11 @@
-import { Card, Tooltip } from 'antd';
+import { Button, Card, Flex, Tooltip } from 'antd';
 import React from 'react';
+import { isMobile } from 'react-device-detect';
+import {
+	EyeOutlined,
+	HeartOutlined,
+} from '@ant-design/icons'
+
 
 interface Props {
     onClick: () => void;
@@ -13,9 +19,9 @@ interface Props {
 const { Meta } = Card;
 
 const cardList: React.FC<Props> = ({ key, onClick, title, subtitle, img, price }) => {
-    // Función para dividir el título en dos partes de 21 caracteres cada una
     const truncateTitle = (title: string): string[] => {
-        const maxLength = 19;
+        const maxLength = isMobile ? 13 : 19;
+        title = title.split('..')[1]
         if (title.length > maxLength) {
             const part1 = title.substring(0, maxLength);
             const part2 = title.substring(maxLength, maxLength * 2);
@@ -35,14 +41,14 @@ const cardList: React.FC<Props> = ({ key, onClick, title, subtitle, img, price }
                     hoverable
                     bordered={true}
                     style={{
-                        width: '230px', // Adjust the width as needed
-                        height: '350px', // Adjust the height as needed
+                        width: isMobile ? '180px' : '230px',
+                        height: '350px',
                     }}
                 >
                     <div style={{ display: 'flex', justifyContent: 'center' }} className='image-container'>
                         <div style={{
                             width: '100%',
-                            height: '60%', // Adjust the height as needed
+                            height: '60%',
                             overflow: 'hidden',
                         }}>
                             <img
@@ -54,12 +60,31 @@ const cardList: React.FC<Props> = ({ key, onClick, title, subtitle, img, price }
                                     width: '100%',
                                     height: '100%',
                                     maxHeight: '150px',
-                                    objectFit: 'cover',
+                                    objectFit: 'contain',
                                 }}
                             />
                         </div>
                     </div>
+
                     <div className=''>
+                        <Flex gap='small' vertical className='img-card-product'>
+                            <Flex wrap='wrap' gap='small'>
+                                <Button
+                                    type='primary'
+                                    shape='circle'
+                                    icon={<HeartOutlined />}
+                                    className='color-purple'
+                                    disabled
+                                />
+                                <Button
+                                    type='primary'
+                                    shape='circle'
+                                    icon={<EyeOutlined />}
+                                    className='color-purple'
+                                    disabled
+                                />
+                            </Flex>
+                        </Flex>
                         <div className="pt-5" style={{ color: 'black' }}>
                             <strong>
                                 <Tooltip title={title} placement="top">

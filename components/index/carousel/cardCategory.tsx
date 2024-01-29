@@ -12,7 +12,7 @@ interface Props {
 const { Meta } = Card
 const cardCatProduct: React.FC<Props> = ({ onClick, namecp, img }) => {
 	return (
-		<div className='pr-5 pl-5'>
+		<div className='pr-7 pl-7'>
 			<Card className='card pt-10' hoverable bordered={true}
 				style={{ width: '100%', maxHeight: '500px', display: 'flex', flexDirection: 'column' }}
 				cover={<img

@@ -1,35 +1,38 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const BottomNav = () => {
-	const router = useRouter()
+  const router = useRouter();
 
-	return (
-		<div className='sm:hidden'>
-			<nav className='color-navbar fixed bottom-0 w-full border-t bg-zinc-100 pb-safe dark:border-zinc-800 dark:bg-zinc-900'>
-				<div className='mx-auto flex h-16 max-w-md items-center justify-around px-6'>
-					{links.map(({ href, label, icon }) => (
-						<Link
-							key={label}
-							href={href}
-							className={`color-link-white flex h-full w-full flex-col items-center justify-center space-y-1 ${router.pathname === href
-								? 'color-link-white text-indigo-500 dark:text-indigo-400'
-								: 'color-link-white text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50'
-								}`}
-						>
-							{icon}
-							<span className='color-link-white text-xs text-zinc-600 dark:text-zinc-400'>
-								{label}
-							</span>
-						</Link>
-					))}
-				</div>
-			</nav>
-		</div>
-	)
-}
+  return (
+    <div className='sm:hidden'>
+      <nav className='color-navbar fixed bottom-0 w-full border-t bg-zinc-100 pb-safe dark:border-zinc-800 dark:bg-zinc-900'>
+        <div className='mx-auto flex h-16 max-w-md items-center justify-around px-6'>
+          {links.map(({ href, label, icon }) => (
+            <Link
+              key={label}
+              href={href}
+              className={`color-link-white flex h-full w-full flex-col items-center justify-center space-y-1 ${router.pathname === href
+                ? 'color-link-blue'
+                : 'color-link-white'
+                }`}
+            >
+              {icon}
+              <span  className={`${router.pathname === href
+                ? 'color-link-blue'
+                : 'color-link-white'
+                }`}>
+                {label}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </nav>
+    </div>
+  );
+};
 
-export default BottomNav
+export default BottomNav;
 
 const links = [
 	{
