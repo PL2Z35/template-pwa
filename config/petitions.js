@@ -346,7 +346,7 @@ async function get_comments(model) {
 }
 
 async function get_all_products(page, category, subcategory) {
-    let params = `?limit=30&country_name=${localStorage.getItem('country')}&page=${page}`
+    let params = `?limit=24&country_name=${localStorage.getItem('country')}&page=${page}`
     let url = ''
     switch (category) {
         case 'FARMACIA':

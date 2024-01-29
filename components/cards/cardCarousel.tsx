@@ -17,7 +17,7 @@ const CardCarousel: React.FC<Props> = ({ key, onClick, title, subtitle, img }) =
     return (
         <div className='pr-8 pl-8'>
             <Card
-                className={`card pt-10 ${isHovered ? 'zoom-effect' : ''}`}
+                className={`pb-2 card pt-10 ${isHovered ? 'zoom-effect' : ''}`}
                 hoverable
                 bordered
                 onMouseEnter={() => setIsHovered(true)}
@@ -28,18 +28,31 @@ const CardCarousel: React.FC<Props> = ({ key, onClick, title, subtitle, img }) =
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    overflow: 'hidden', // Added to prevent content overflow
                 }}
             >
                 <Meta
-                    title={<h1 className='center-text large-text car-text-color'>{title.split('..')[1].length > 20 ? title.split('..')[1].toUpperCase().substring(0, 21) + '...' : title.split('..')[1].toUpperCase()}</h1>}
+                    title={
+                        <h1
+                            className='center-text large-text car-text-color'
+                            style={{
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                            }}
+                        >
+                            {title.split('..')[1].length > 17
+                                ? title.split('..')[1].toUpperCase().substring(0, 17) + '...'
+                                : title.split('..')[1].toUpperCase()}
+                        </h1>
+                    }
                     description={
                         <div
                             style={{
                                 overflow: 'hidden',
-                                display: '-webkit-box',
-                                WebkitBoxOrient: 'vertical',
-                                WebkitLineClamp: 1,
+                                whiteSpace: 'nowrap',
+                                textOverflow: 'ellipsis',
                             }}
                         >
                             {subtitle}
