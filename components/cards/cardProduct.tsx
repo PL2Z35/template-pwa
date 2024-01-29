@@ -35,7 +35,7 @@ const cardList: React.FC<Props> = ({ key, onClick, title, subtitle, img, price }
                     hoverable
                     bordered={true}
                     style={{
-                        width: '200px', // Adjust the width as needed
+                        width: '230px', // Adjust the width as needed
                         height: '350px', // Adjust the height as needed
                     }}
                 >
